@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://c677ncnddshuw"]
+
+[ext_resource type="Script" path="res://Scripts/CarController.gd" id="1_eo70y"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_16fjf"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t5mpa"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_acj08"]
+
+[node name="DevCarScene" type="Node3D"]
+script = ExtResource("1_eo70y")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 6, 3.5)
+fov = 45.0
+
+[node name="CarTarget" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0)
+
+[node name="RedDot" type="MeshInstance3D" parent="CarTarget"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+mesh = SubResource("SphereMesh_16fjf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_t5mpa")
+
+[node name="Car" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0)
+
+[node name="Body" type="MeshInstance3D" parent="Car"]
+transform = Transform3D(0.5, 0, 0, 0, 0.3, 0, 0, 0, 0.8, 0, 0.15, 0)
+mesh = SubResource("BoxMesh_acj08")
+skeleton = NodePath("../..")
