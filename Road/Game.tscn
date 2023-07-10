@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dc4cth8fyvl2m"]
+
+[ext_resource type="Script" path="res://Road/Spawner.gd" id="1_6ftwb"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g42a2"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_i8ugj"]
+sky_material = SubResource("ProceduralSkyMaterial_g42a2")
+
+[sub_resource type="Environment" id="Environment_kovu2"]
+background_mode = 2
+sky = SubResource("Sky_i8ugj")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Game" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kovu2")
+
+[node name="Spawner" type="Node3D" parent="."]
+script = ExtResource("1_6ftwb")
