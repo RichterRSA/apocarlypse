@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c677ncnddshuw"]
+[gd_scene load_steps=6 format=3 uid="uid://c677ncnddshuw"]
 
 [ext_resource type="Script" path="res://Scripts/CarController.gd" id="1_eo70y"]
 
@@ -11,6 +11,9 @@ shading_mode = 0
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_acj08"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qshly"]
+size = Vector3(0.5, 0.3, 0.8)
 
 [node name="DevCarScene" type="Node3D"]
 script = ExtResource("1_eo70y")
@@ -35,3 +38,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0)
 transform = Transform3D(0.5, 0, 0, 0, 0.3, 0, 0, 0, 0.8, 0, 0.15, 0)
 mesh = SubResource("BoxMesh_acj08")
 skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Car"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Car/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+shape = SubResource("BoxShape3D_qshly")
