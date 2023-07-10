@@ -1,0 +1,47 @@
+[gd_scene load_steps=10 format=3 uid="uid://co02dyqcu2h6u"]
+
+[ext_resource type="PackedScene" uid="uid://c677ncnddshuw" path="res://Assets/DevCar.tscn" id="1_tptuc"]
+[ext_resource type="PackedScene" uid="uid://bt20dgskoyt68" path="res://Road/Choice Obstacle.tscn" id="2_aw8hg"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3381k"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+sky_energy_multiplier = 6.75
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_kmf4i"]
+sky_material = SubResource("ProceduralSkyMaterial_3381k")
+
+[sub_resource type="Environment" id="Environment_8k4wn"]
+background_mode = 2
+sky = SubResource("Sky_kmf4i")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7buf0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o0ll1"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2yutr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i0c3q"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8k4wn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, -10)
+mesh = SubResource("PlaneMesh_7buf0")
+surface_material_override/0 = SubResource("StandardMaterial3D_o0ll1")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, -30)
+mesh = SubResource("PlaneMesh_2yutr")
+surface_material_override/0 = SubResource("StandardMaterial3D_i0c3q")
+
+[node name="Node3D" parent="." instance=ExtResource("2_aw8hg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
+
+[node name="DevCarScene" parent="." instance=ExtResource("1_tptuc")]
