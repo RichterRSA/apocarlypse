@@ -1,4 +1,4 @@
-extends Node3D
+extends CanvasLayer
 
 
 # Called when the node enters the scene tree for the first time.
@@ -8,4 +8,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	$WeaponsLabel.text = "Weapons: " + str(Stats.Weapons)
+	$ScoreLabel.text = "Score: "  + str(Stats.Score)
+	$HealthLabel.text = "Health: " + str(Stats.Health)
+	
+	
