@@ -18,6 +18,12 @@ func _ready():
 func choose_weapons():
 	$ChoiceLabel.text = "Weapons"
 	chosen = Chosen.Weapon
+	var random = RandomNumberGenerator.new()
+	random.randomize()
+	left = random.randi_range(-5,5)
+	right = random.randi_range(-5,5)
+	$"MeshInstance3D Left/LeftLabel".text = str(left)
+	$"MeshInstance3D Right/RightLabel".text = str(right)
 
 func choose_health():
 	$ChoiceLabel.text = "Health"
@@ -26,6 +32,8 @@ func choose_health():
 	random.randomize()
 	left = random.randi_range(-10,10)*10
 	right = random.randi_range(-10,10)*10
+	$"MeshInstance3D Left/LeftLabel".text = str(left)
+	$"MeshInstance3D Right/RightLabel".text = str(right)
 
 
 
@@ -43,10 +51,14 @@ func _on_area_3d_body_entered(body):
 		print("Right")
 		if chosen==Chosen.Health:
 			Stats.Health+=right
+		elif chosen==Chosen.Weapon:
+			Stats.Weapon+=right
 	if x<0:
 		print("Left")
 		if chosen==Chosen.Health:
 			Stats.Health+=left
+		elif chosen==Chosen.Weapon:
+			Stats.Weapon+=left
 	print("collide")
 	queue_free() 
 	

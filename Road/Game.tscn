@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dc4cth8fyvl2m"]
+[gd_scene load_steps=6 format=3 uid="uid://dc4cth8fyvl2m"]
 
 [ext_resource type="Script" path="res://Road/Spawner.gd" id="1_6ftwb"]
+[ext_resource type="PackedScene" uid="uid://cq0f4pcg3pm20" path="res://Road/UI.tscn" id="2_31ner"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g42a2"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -22,3 +23,5 @@ environment = SubResource("Environment_kovu2")
 
 [node name="Spawner" type="Node3D" parent="."]
 script = ExtResource("1_6ftwb")
+
+[node name="UI" parent="." instance=ExtResource("2_31ner")]

@@ -1,6 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cn8r8b16fud1n"]
-
-[ext_resource type="PackedScene" uid="uid://bt20dgskoyt68" path="res://Road/Choice Obstacle.tscn" id="1_1wb84"]
+[gd_scene load_steps=5 format=3 uid="uid://bf3wyb2wwygq0"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ru4jk"]
 size = Vector2(2, 10)
@@ -24,6 +22,3 @@ surface_material_override/0 = SubResource("StandardMaterial3D_4sq5l")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
 mesh = SubResource("PlaneMesh_1fdk1")
 surface_material_override/0 = SubResource("StandardMaterial3D_fq5q6")
-
-[node name="Choice Obstacle" parent="." instance=ExtResource("1_1wb84")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
