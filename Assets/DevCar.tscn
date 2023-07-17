@@ -41,6 +41,7 @@ fov = 45.0
 
 [node name="CarTarget" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0)
+visible = false
 
 [node name="RedDot" type="MeshInstance3D" parent="CarTarget"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
